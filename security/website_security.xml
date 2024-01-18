@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <record id="group_timeoff_employee_portal" model="res.groups">
+        <field name="name">Time Off Employee Portal</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="category_id" ref="base.module_category_website_website"/>
+    </record>
+    <data>
+        <record id="mvk_hr_holidays_website_page_timeoff_rule" model="ir.rule">
+            <field name="name">website.page: time off employee portal</field>
+            <field name="model_id" ref="website.model_website_page" />
+            <field name="domain_force">['&amp;', ('website_published', '=', True), (user.is_employee_portal, '=', True)]</field>
+            <field name="groups" eval="[(4, ref('group_timeoff_employee_portal'))]" />
+        </record>
+        <!-- <record id="mvk_hr_holidays_website_menu_timeoff_rule" model="ir.rule">
+            <field name="name">website.menu: time off employee portal</field>
+            <field name="model_id" ref="website.model_website_menu" />
+            <field name="domain_force">[(user.is_employee_portal, '=', True)]</field>
+            <field name="groups" eval="[(4, ref('group_timeoff_employee_portal'))]" />
+        </record> -->
+    </data>
+
+
+</odoo>

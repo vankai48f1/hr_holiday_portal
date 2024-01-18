@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="mvk_hr_holidays_index" name="Time Off">
+        <!-- <t t-call="website.layout">
+            <title>Time Off</title>
+            <section class="pt8 pb8">
+                <div class="container">
+                    <t t-if="holidays" t-call="portal.portal_table">
+                        <thead>
+                            <tr class="active">
+                                <th>Time Off #</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Duration</th>
+                                <th class="text-end">Status</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="holidays" t-as="holiday">
+                            <tr>
+                                <td><span t-field="holiday.holiday_status_id.name"/></td>
+                                <td><span t-field="holiday.request_date_from"/></td>
+                                <td><span t-field="holiday.request_date_to"/></td>
+                                <td><span t-field="holiday.number_of_days_display"/></td>
+                                <td class="text-end">
+                                    <span t-field="holiday.state"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                    <t t-else="">
+                        <p>You don't have holidays.</p>
+                    </t>
+                </div>
+            </section>
+        </t> -->
+        <!-- <templates name="">
+            <t t-name="hr_holidays.CalendarRendererPortal" owl="1">
+                <div class="o_timeoff_calendar">
+                    <TimeOffDashboard t-if="showDashboard" employeeId="employeeId"/>
+                    <t t-call="web.CalendarRenderer"/>
+                </div>
+            </t>
+        </templates> -->
+        <t t-call="website.layout">
+            <title>Time Off</title>
+            <div class="mvk_timeoff_portal_dashboard"></div>
+        </t>
+    </template>
+
+    <!-- Menu website -->
+    <template id="mvk_hr_holidays_timeoff_menu" inherit_id="website.navbar_nav" name="Time off menu">
+        <xpath expr="//ul[@id='top_menu']" position="inside">
+            <t t-if="user_id.employee_portal_view == 'time_off_portal'">
+                <li class="nav-item"><a href="/timeoff" role="menuitem" class="nav-link "><span>Time off</span></a></li>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- <data>
+        <record id="timeoff_page" model="website.page">
+            <field name="is_published">True</field>
+            <field name="url">/timeoff</field>
+            <field name="view_id" ref="mvk_hr_holidays_index" />
+            <field name="track">True</field>
+            <field name="visibility">restricted_group</field>
+            <field name="groups_id" eval="[(4, ref('group_timeoff_employee_portal'))]" />
+        </record>
+
+        <record id="mvk_hr_holidays_menu_timeoff" model="website.menu">
+            <field name="name">Time Off</field>
+            <field name="url">/timeoff</field>
+            <field name="page_id" ref="mvk_hr_holidays.timeoff_page" />
+            <field name="parent_id" ref="website.main_menu" />
+            <field name="sequence" type="int">100</field>
+        </record>
+    </data> -->
+
+</odoo>

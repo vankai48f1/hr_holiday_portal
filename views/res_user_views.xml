@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="mvk_hr_holidays_view_users_form_inherit" model="ir.ui.view">
+            <field name="name">mvk.hr.holidays.res.users.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@name='access_rights']" position="inside">
+                    <field name="flag_user_portal" invisible="1"/>
+                    <!-- <field name="employee_portal_group" invisible="1"/> -->
+                    <group string="Employee portal" invisible="not flag_user_portal">
+                        <newline/>
+                        <!-- <field name="is_employee_portal" widget="boolean_toggle"/> -->
+                        <field name="employee_portal_view" widget="radio"/>
+                        <newline/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+    
+
+</odoo>

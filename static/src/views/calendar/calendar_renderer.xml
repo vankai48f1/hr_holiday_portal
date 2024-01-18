@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="mvk.CalendarRenderer">
+        <div class="container">
+            <div class="o_calendar_renderer h-100">
+                <h2>This is Calendar test</h2>
+                <hr/>
+                <MvkCalendarYearRenderer></MvkCalendarYearRenderer>
+            </div>
+        </div>
+    </t>
+
+</templates>

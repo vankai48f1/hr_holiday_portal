@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="mvk_hr_holidays_timeoff_menu_portal" inherit_id="web.layout" name="dfasdf dsfadsfasdf">
+        <xpath expr="//ul[@id='top_menu']" position="inside">
+            fsdafadfsdfdsf
+        </xpath>
+    </template>
+
+
+</odoo>

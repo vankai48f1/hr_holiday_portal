@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="mvk_hr_holidays_ir_ui_view_form_inherit" model="ir.ui.view">
+            <field name="name">mvk.hr.holidays.ir.ui.view.form.inherit</field>
+            <field name="model">ir.ui.view</field>
+            <field name="inherit_id" ref="website.view_view_form_extend"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group/group/field[@name='xml_id']" position="after">
+                    <field name="is_page_employee_portal" widget="boolean_toggle"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+    
+
+</odoo>
