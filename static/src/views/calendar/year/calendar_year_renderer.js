@@ -1,26 +1,26 @@
 /* @odoo-module */
 
-import { localization } from "@web/core/l10n/localization";
+// import { localization } from "@web/core/l10n/localization";
+import { _t } from "@web/core/l10n/translation";
 import { useDebounced } from "@web/core/utils/timing";
 import { useFullCalendar } from "../hooks";
 
 import { Component, xml, mount, whenReady, useState, onWillStart, useEffect, useRef } from "@odoo/owl"
 import { jsonrpc } from "@web/core/network/rpc_service"
 import { session } from "@web/session";
-import { useBus, useService } from "@web/core/utils/hooks";
 
-export class MvkCalendarYearRenderer extends Component {
+export class TimeOffPortalCalendarYearRenderer extends Component {
     setup() {
-        this.orm = useService("orm");
+        // this.orm = useService("orm");
         this.months = luxon.Info.months();
         this.user = session.user_id
-
-        this.state = useState({
-            date: luxon.DateTime.now(),
-            today: luxon.DateTime.now(),
-            holidays: [],
-            orders: []
-        });
+        console.log('this', this);
+        // this.state = useState({
+        //     date: luxon.DateTime.now(),
+        //     today: luxon.DateTime.now(),
+        //     holidays: [],
+        //     orders: []
+        // });
 
         this.fcs = {};
         for (const month of this.months) {
@@ -36,20 +36,20 @@ export class MvkCalendarYearRenderer extends Component {
             this.updateSize();
         });
 
-        onWillStart(async ()=>{
-            const data = await jsonrpc("/web/dataset/call_kw/sale.order/search_read",{
-                model: "sale.order",
-                method: "search_read",
-                args: [ [['state', 'in', ['sale','done'] ]], ['name', 'date_order'] ],
-                kwargs: {
-                    limit: 10,
-                    order: "date_order"
-                }
-            })
+        // onWillStart(async ()=>{
+        //     const data = await jsonrpc("/web/dataset/call_kw/sale.order/search_read",{
+        //         model: "sale.order",
+        //         method: "search_read",
+        //         args: [ [['state', 'in', ['sale','done'] ]], ['name', 'date_order'] ],
+        //         kwargs: {
+        //             limit: 10,
+        //             order: "date_order"
+        //         }
+        //     })
 
-            this.state.orders = data
-            // await this.loadDashboardData();
-        })
+        //     this.state.orders = data
+        //     // await this.loadDashboardData();
+        // })
     }
 
     get options() {
@@ -60,7 +60,7 @@ export class MvkCalendarYearRenderer extends Component {
             // dayRender: this.onDayRender,
             defaultDate: new Date().toISOString(),
             defaultView: "dayGridMonth",
-            dir: localization.direction,
+            // dir: localization.direction,
             droppable: true,
             editable: true,
             eventLimit: 5,
@@ -75,7 +75,7 @@ export class MvkCalendarYearRenderer extends Component {
             navLinks: false,
             nowIndicator: true,
             plugins: ["dayGrid", "interaction", "luxon"],
-            select: this.onSelect,
+            // select: this.onSelect,
             selectMinDistance: 5, // needed to not trigger select when click
             selectMirror: true,
             selectable: true,
@@ -110,19 +110,19 @@ export class MvkCalendarYearRenderer extends Component {
     // mapRecordsToEvents() {
     //     return Object.values(this.props.model.records).map((r) => this.convertRecordToEvent(r));
     // }
-    convertRecordToEvent(record) {
-        return {
-            id: record.id,
-            title: record.title,
-            start: record.start.toISO(),
-            end: record.end.plus({ day: 1 }).toISO(),
-            allDay: true,
-            rendering: "background",
-        };
-    }
-    getDateWithMonth(month) {
-        return this.props.model.date.set({ month: this.months.indexOf(month) + 1 }).toISO();
-    }
+    // convertRecordToEvent(record) {
+    //     return {
+    //         id: record.id,
+    //         title: record.title,
+    //         start: record.start.toISO(),
+    //         end: record.end.plus({ day: 1 }).toISO(),
+    //         allDay: true,
+    //         rendering: "background",
+    //     };
+    // }
+    // getDateWithMonth(month) {
+    //     return this.props.model.date.set({ month: this.months.indexOf(month) + 1 }).toISO();
+    // }
     getOptionsForMonth(month) {
         return {
             ...this.options,
@@ -162,5 +162,4 @@ export class MvkCalendarYearRenderer extends Component {
     }
 }
 
-MvkCalendarYearRenderer.template = "mvk.CalendarYearRenderer";
-
+TimeOffPortalCalendarYearRenderer.template = "mvk.CalendarYearRenderer";

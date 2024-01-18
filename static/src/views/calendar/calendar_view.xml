@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="mvk_hr_holidays.CalendarView">
+        <div class="calendar_portal_view">
+            <TimeOffPortalCalendarRenderer></TimeOffPortalCalendarRenderer>
+        </div>
+    </t>
+
+</templates>

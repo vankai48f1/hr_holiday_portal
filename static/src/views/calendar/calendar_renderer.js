@@ -1,17 +1,14 @@
 /* @odoo-module */
 
 import { Component, xml, mount, whenReady, useState, onWillStart } from "@odoo/owl"
-import { templates } from "@web/core/assets"
-import { MvkCalendarYearRenderer } from "./year/calendar_year_renderer"
+import { TimeOffPortalCalendarYearRenderer } from "./year/calendar_year_renderer"
 
-class MvkCalendarRenderer extends Component {
+
+export class TimeOffPortalCalendarRenderer extends Component {
     static template = "mvk.CalendarRenderer"
+    setup() {
+        this.state = useState({ task: "a" });
+    }
 }
 
-MvkCalendarRenderer.components = {MvkCalendarYearRenderer}
-whenReady(()=>{    
-    const mvkTimeOffPortalDashboard = document.querySelector('.mvk_timeoff_portal_dashboard')
-    if (mvkTimeOffPortalDashboard){
-        mount(MvkCalendarRenderer, mvkTimeOffPortalDashboard, { templates })
-    }
-})
+TimeOffPortalCalendarRenderer.components = {TimeOffPortalCalendarYearRenderer}

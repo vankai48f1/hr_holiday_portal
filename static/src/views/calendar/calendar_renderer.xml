@@ -6,7 +6,7 @@
             <div class="o_calendar_renderer h-100">
                 <h2>This is Calendar test</h2>
                 <hr/>
-                <MvkCalendarYearRenderer></MvkCalendarYearRenderer>
+                <TimeOffPortalCalendarYearRenderer></TimeOffPortalCalendarYearRenderer>
             </div>
         </div>
     </t>

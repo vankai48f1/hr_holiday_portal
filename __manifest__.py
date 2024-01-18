@@ -51,13 +51,36 @@
     'installable': True,
     'assets': {
         'web.assets_frontend': [
-            # 'mvk_hr_holidays/static/src/views/calendar/hooks.js',
-            # 'mvk_hr_holidays/static/src/views/calendar/year/*',
-            # 'web/static/src/scss/secondary_variables.scss',
-            # 'web_editor/static/src/scss/secondary_variables.scss',
+            # 'web/static/src/core/commands/**/*',
+            # 'web/static/src/core/debug/debug_menu.js',
+            # 'web/static/src/core/utils/transitions.scss',
+            # 'web/static/src/model/**/*',
+            # 'web/static/src/search/**/*',
+            # 'web/static/src/webclient/icons.scss', # variables required in list_controller.scss
+            # 'web/static/src/views/**/*',
+            
+            'web/static/src/search/search_arch_parser.js',
+            'web/static/src/search/utils/dates.js',
+            'web/static/src/search/utils/misc.js',
+            
+            
+            'web/static/src/webclient/actions/action_hook.js',
+            'web/static/src/search/search_model.js',
+            'web/static/src/search/utils/order_by.js',
+            
+            'web/static/src/search/with_search/with_search.js',
+            'web/static/src/views/view_hook.js',
+            'web/static/src/model/sample_server.js',
+            
+
+            'web/static/src/model/model.js',
+            'web/static/src/model/relational_model/utils.js',
+            
+            
             'web/static/src/views/calendar/*.scss',
+            'web/static/src/views/calendar/calendar_model.js',
+            
             'mvk_hr_holidays/static/src/views/**/*',
-            # 'web/static/src/views/calendar/calendar_renderer.js',
         
         ],
     }
